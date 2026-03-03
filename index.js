@@ -40,59 +40,140 @@ if (!BASE_URL) {
 app.get('/', (req, res) => {
   res.send(`
     <!DOCTYPE html>
-    <html>
+    <html lang="es">
     <head>
       <meta charset="UTF-8">
-      <title>Pago Hotel Isabel</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Pago Seguro | Hotel Isabel</title>
+
       <style>
         body {
-          font-family: Arial;
-          background: #f5f5f5;
+          margin: 0;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
           display: flex;
           justify-content: center;
           align-items: center;
           height: 100vh;
+          color: white;
         }
 
-        form {
+        .card {
           background: white;
-          padding: 30px;
-          border-radius: 10px;
-          box-shadow: 0 0 10px rgba(0,0,0,.1);
+          color: #333;
+          padding: 40px;
+          border-radius: 12px;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+          width: 90%;
+          max-width: 450px;
+          animation: fadeIn 0.8s ease-in-out;
         }
 
-        input, button {
+        h2 {
+          margin-top: 0;
+          margin-bottom: 10px;
+          text-align: center;
+          color: #203a43;
+        }
+
+        .subtitle {
+          text-align: center;
+          font-size: 14px;
+          color: #666;
+          margin-bottom: 25px;
+        }
+
+        label {
+          font-weight: 600;
+          font-size: 14px;
+        }
+
+        input {
           width: 100%;
-          margin-top: 10px;
-          padding: 10px;
+          margin-top: 8px;
+          padding: 12px;
+          border-radius: 6px;
+          border: 1px solid #ccc;
+          font-size: 16px;
+          box-sizing: border-box;
+          transition: border 0.3s ease;
+        }
+
+        input:focus {
+          outline: none;
+          border-color: #0d6efd;
         }
 
         button {
-          background: #2c7be5;
+          width: 100%;
+          margin-top: 20px;
+          padding: 12px;
+          background-color: #0d6efd;
           color: white;
           border: none;
+          border-radius: 6px;
+          font-size: 16px;
+          font-weight: bold;
           cursor: pointer;
+          transition: 0.3s ease;
+        }
+
+        button:hover {
+          background-color: #0b5ed7;
+        }
+
+        .security {
+          margin-top: 20px;
+          font-size: 12px;
+          text-align: center;
+          color: #777;
+        }
+
+        .icon {
+          text-align: center;
+          font-size: 40px;
+          margin-bottom: 10px;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
       </style>
     </head>
 
     <body>
-      <form method="POST" action="/crear-pago">
+      <div class="card">
 
-        <h2>Pago Hotel Isabel</h2>
+        <div class="icon">🏨</div>
 
-        <label>Monto (MXN)</label>
-        <input 
-          type="number" 
-          name="amount" 
-          step="0.01" 
-          min="1"
-          required
-        />
+        <h2>Pago Seguro</h2>
+        <div class="subtitle">Hotel Isabel · Plataforma de pagos en línea</div>
 
-        <button type="submit">Pagar</button>
+        <form method="POST" action="/crear-pago">
 
-      </form>
+          <label>Monto a pagar (MXN)</label>
+
+          <input 
+            type="number" 
+            name="amount" 
+            step="0.01" 
+            min="1"
+            placeholder="Ej. 1500.00"
+            required
+          />
+
+          <button type="submit">
+            Pagar ahora
+          </button>
+
+          <div class="security">
+            🔒 Transacción protegida con encriptación y 3D Secure
+          </div>
+
+        </form>
+
+      </div>
     </body>
     </html>
   `)
