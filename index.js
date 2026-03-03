@@ -162,9 +162,97 @@ app.post('/crear-pago', async (req, res) => {
 app.get('/pago-exitoso', (req, res) => {
 
   res.send(`
-    <h1>Pago en proceso</h1>
-    <p>Estamos validando tu transacción.</p>
-    <p>Gracias por tu preferencia.</p>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Pago Exitoso | Hotel Isabel</title>
+
+      <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          color: white;
+          text-align: center;
+        }
+
+        .card {
+          background: white;
+          color: #333;
+          padding: 40px;
+          border-radius: 12px;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+          max-width: 500px;
+          width: 90%;
+          animation: fadeIn 0.8s ease-in-out;
+        }
+
+        h1 {
+          color: #28a745;
+          margin-bottom: 15px;
+        }
+
+        p {
+          margin: 10px 0;
+          font-size: 16px;
+        }
+
+        .btn {
+          display: inline-block;
+          margin-top: 20px;
+          padding: 12px 25px;
+          background-color: #0d6efd;
+          color: white;
+          text-decoration: none;
+          border-radius: 6px;
+          font-weight: bold;
+          transition: 0.3s ease;
+        }
+
+        .btn:hover {
+          background-color: #0b5ed7;
+        }
+
+        .icon {
+          font-size: 60px;
+          margin-bottom: 15px;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      </style>
+
+      <script>
+        setTimeout(function() {
+          window.location.href = "https://hotel-isabel.com.mx/pagosonlinehotelisabel";
+        }, 5000);
+      </script>
+
+    </head>
+    <body>
+
+      <div class="card">
+        <div class="icon">✅</div>
+        <h1>¡Pago realizado con éxito!</h1>
+        <p>Tu transacción ha sido procesada correctamente.</p>
+        <p>Gracias por confiar en Hotel Isabel.</p>
+        <p>En unos segundos serás redirigido automáticamente.</p>
+
+        <a href="https://hotel-isabel.com.mx/pagosonlinehotelisabel" class="btn">
+          Realizar otro pago
+        </a>
+      </div>
+
+    </body>
+    </html>
   `)
 
 })
