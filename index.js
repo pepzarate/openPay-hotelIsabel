@@ -195,7 +195,7 @@ app.post('/crear-pago', async (req, res) => {
     console.log('💳 Creando pago por:', amount)
 
     const response = await axios.post(
-      `https://sandbox-api.openpay.mx/v1/${process.env.OPENPAY_MERCHANT_ID}/charges`,
+      `https://api.openpay.mx/v1/${process.env.OPENPAY_MERCHANT_ID}/charges`,
       {
         method: 'card',
         amount,
@@ -314,7 +314,7 @@ app.get('/pago-exitoso', (req, res) => {
       <script>
         setTimeout(function() {
           window.location.href = "https://hotel-isabel.com.mx/pagosonlinehotelisabel";
-        }, 5000);
+        }, 10000);
       </script>
 
     </head>
