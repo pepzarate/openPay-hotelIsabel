@@ -338,6 +338,18 @@ app.get('/pago-exitoso', (req, res) => {
 
 })
 
+app.all('/wubook-test', (req, res) => {
+
+  console.log('====================')
+  console.log('WUBOOK REQUEST')
+  console.log('METHOD:', req.method)
+  console.log('QUERY:', req.query)
+  console.log('BODY:', req.body)
+  console.log('====================')
+
+  res.send('https://google.com')
+})
+
 /* =====================
    SERVER
 ===================== */
